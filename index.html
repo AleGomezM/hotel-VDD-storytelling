@@ -246,6 +246,30 @@ footer .src{font-size:12.5px;opacity:.8;margin-top:20px;line-height:1.7}
         </ul>
       </div>
     </div>
+
+    <h2 style="margin-top:48px">El dato que lo explica todo: origen del huésped</h2>
+    <div class="twocol">
+      <div class="card" style="border-top:4px solid var(--city)">
+        <h3 style="color:var(--city)">Turista portugués</h3>
+        <ul>
+          <li><b>47.024 reservas</b> analizadas</li>
+          <li>Tasa de cancelación: <b style="color:var(--city)">58,1%</b> — la más alta del análisis</li>
+          <li>Antelación media de reserva: <b>118 días</b></li>
+          <li>Tarifa media por noche: <b>95 €</b></li>
+          <li>Reserva antes, pero cancela con mucha mayor frecuencia</li>
+        </ul>
+      </div>
+      <div class="card" style="border-top:4px solid var(--resort)">
+        <h3 style="color:var(--resort)">Turista internacional</h3>
+        <ul>
+          <li><b>70.371 reservas</b> analizadas</li>
+          <li>Tasa de cancelación: <b style="color:var(--resort)">23,7%</b> — menos de la mitad</li>
+          <li>Antelación media de reserva: <b>96 días</b></li>
+          <li>Tarifa media por noche: <b>109 €</b></li>
+          <li>Mayor fiabilidad y mayor ingreso por estancia</li>
+        </ul>
+      </div>
+    </div>
   </div>
 
   <!-- ===== Bloques de cierre ===== -->
@@ -277,14 +301,6 @@ footer .src{font-size:12.5px;opacity:.8;margin-top:20px;line-height:1.7}
         <span class="chip"><b>Triggers JSON</b> · cada bloque ordena qué muestra el gráfico</span>
       </div>
       <p>Cada bloque de narración incorpora un <b>disparador en formato JSON</b> que instruye al gráfico sobre cómo transformarse: resaltar un país, alternar entre volumen total y tasa de cancelación, o actualizar la métrica visualizada. Este mecanismo permite que una misma figura comunique múltiples perspectivas sin sobrecargar visualmente la pantalla.</p>
-    </div>
-
-    <!-- [25%] Navegación / animación -->
-    <div class="block fade-up">
-      <div class="eyebrow">Navegación y animación</div>
-      <h3>Cómo se mueve la visualización</h3>
-      <p>La interfaz no requiere botones ni menús adicionales: <b>el desplazamiento vertical constituye en sí mismo la mecánica de navegación</b>. Cuando un bloque de texto alcanza el centro de la pantalla, se activa visualmente y, en ese preciso momento, el gráfico de la derecha ejecuta su transición hacia el nuevo estado. Una barra de progreso en la parte superior indica al usuario en qué punto del relato se encuentra.</p>
-      <p>Las transiciones entre estados emplean <b>animaciones interpoladas</b> en lugar de cambios abruptos. Esto permite al usuario seguir con claridad <em>qué</em> ha cambiado de un paso al siguiente, manteniendo el foco cognitivo sobre el dato y no sobre el movimiento. La navegación es bidireccional: al retroceder, cada gráfico recupera su estado anterior.</p>
     </div>
 
     <!-- [20%] Justificación de los elementos visuales -->
@@ -905,30 +921,6 @@ const storyConfiguration = {
         {h2Text:'El ocio urbano: la categoría con mayor inestabilidad',
          paragraphText:'Las estancias de <strong>ocio en el hotel urbano de Lisboa</strong> alcanzan una tasa de cancelación próxima al <strong>57%</strong>, frente al <strong>18%</strong> de los fines de semana en el resort, que se consolida como la categoría más estable del análisis.',
          trigger:{}},
-      ]
-    },
-
-    /* ---------- SECCIÓN 8: galería de gráficos originales en R ---------- */
-    {
-      sectionIdentifier:'analisisR',
-      bandTitle:'Del análisis original en R',
-      bandText:'El análisis exploratorio previo, realizado en R con la librería ggplot2, fue el punto de partida de esta visualización. A continuación se presentan algunos de los gráficos originales que fundamentaron los hallazgos principales.',
-      graphTitle:'Gráficos originales · R + ggplot2',
-      graphCaption:'Figuras generadas a partir del mismo conjunto de datos limpio.',
-      buildGraphFunction: chartRGallery,
-      narration:[
-        {h2Text:'El precio, en bruto',
-         paragraphText:'El primer histograma de ADR generado en R evidenció que ciudad y costa <strong>presentan distribuciones de precios claramente diferenciadas</strong>. Este fue el punto de partida del análisis.',
-         trigger:{img:'adr_hist'}},
-        {h2Text:'Las cancelaciones, ordenadas',
-         paragraphText:'La reordenación del gráfico de cancelación por país <strong>de mayor a menor tasa</strong> resultó determinante para identificar a Portugal como el caso atípico más relevante del conjunto de datos.',
-         trigger:{img:'country_cancel'}},
-        {h2Text:'La antelación de la reserva',
-         paragraphText:'El diagrama de caja del lead time evidenció que en el resort las reservas presentan <strong>distribuciones con colas significativamente más largas</strong>, lo que refleja un patrón de planificación vacacional con mayor antelación.',
-         trigger:{img:'leadtime'}},
-        {h2Text:'El pulso del año',
-         paragraphText:'El gráfico de líneas mensuales elaborado en R confirmó las <strong>marcadas diferencias estacionales</strong> entre el turista doméstico y el internacional, aportando solidez empírica al relato.',
-         trigger:{img:'monthly'}},
       ]
     },
 
